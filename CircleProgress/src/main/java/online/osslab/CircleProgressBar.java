@@ -19,6 +19,7 @@ public class CircleProgressBar extends View {
 
     // Properties
     private float progress = 0;
+    private float max = 100;
     private float strokeWidth = getResources().getDimension(R.dimen.default_stroke_width);
     private float backgroundStrokeWidth = getResources().getDimension(R.dimen.default_background_stroke_width);
     private int color = Color.BLACK;
@@ -43,6 +44,7 @@ public class CircleProgressBar extends View {
         try {
             // Value
             progress = typedArray.getFloat(R.styleable.CircleProgressBar_progress_value, progress);
+            max = typedArray.getFloat(R.styleable.CircleProgressBar_max_value, max);
             // StrokeWidth
             strokeWidth = typedArray.getDimension(R.styleable.CircleProgressBar_progress_width, strokeWidth);
             backgroundStrokeWidth = typedArray.getDimension(R.styleable.CircleProgressBar_background_width, backgroundStrokeWidth);
@@ -72,7 +74,7 @@ public class CircleProgressBar extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawOval(rectF, backgroundPaint);
-        float angle = 360 * progress / 100;
+        float angle = 360 * progress / max;
         canvas.drawArc(rectF, startAngle, angle, false, foregroundPaint);
     }
     //endregion
@@ -93,9 +95,14 @@ public class CircleProgressBar extends View {
     public float getProgress() {
         return progress;
     }
+    
+    public void setMax(float max) {
+        this.max = max;
+        invalidate();
+    }
 
     public void setProgress(float progress) {
-        this.progress = (progress<=100) ? progress : 100;
+        this.progress = (progress<=max) ? progress : max;
         invalidate();
     }
 

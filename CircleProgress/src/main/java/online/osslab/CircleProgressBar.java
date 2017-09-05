@@ -11,9 +11,9 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 
-
 /**
  * http://circleprogress.osslab.online
+ * edited by ccapton 2017/09/05  http://ccapton.cn
  */
 public class CircleProgressBar extends View {
 
@@ -99,6 +99,10 @@ public class CircleProgressBar extends View {
     public void setMax(float max) {
         this.max = max;
         invalidate();
+    }
+    
+    public float getMax(){
+        return max;
     }
 
     public void setProgress(float progress) {

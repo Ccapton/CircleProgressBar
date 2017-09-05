@@ -2,11 +2,9 @@
 
 ## CircularProgressBar
 
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-CircleProgressBar-lightgrey.svg?style=flat)](http://circleprogress.osslab.online/)
 [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 [![API](https://img.shields.io/badge/API-11%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=11)
-[![OSSLab](https://img.shields.io/badge/OSSLab-开源软件实验室-blue.svg?style=flat)](http://osslab.online/)
-
+ 
 最简单的圆形进度条控件，支持自定义颜色、边框、背景等属性。
 
 <img src="./preview/preview.gif" alt="CircleProgressBar" title="CircleProgressBar" width="300" height="448" align="right" vspace="24" />
@@ -16,8 +14,23 @@
 
 首先，你需要导入模块项目或者添加依赖类库：
 
-```groovy
-compile 'online.osslab:CircleProgress:1.0.0'
+build.gradle(Project)
+```
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+build.gradle(Module:app)
+
+``` 
+	dependencies {
+	        compile 'com.github.Ccapton:CircleProgressBar:1.1.0'
+	}
+
 ```
 
 #### 样式文件
@@ -36,6 +49,7 @@ compile 'online.osslab:CircleProgress:1.0.0'
 
 ###### 图形属性:
 
+* `circle:max_value`                      (integer)   -> 150
 * `circle:progress_value`                      (integer)   -> 0
 * `circle:progressbar_color`             (color)     -> BLACK
 * `circle:background_color`  (color)     -> GRAY
@@ -59,6 +73,7 @@ circleProgressBar.setProgressWithAnimation(65, animationDuration); // Default du
 
 - [wall-e@live.cn](mailto:wall-e@live.cn)
 - [开源软件实验室](http://osslab.online/)
+- [ccapton](http://ccapton.cn)
 
 
 ## 许可协议
